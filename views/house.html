@@ -1,0 +1,39 @@
+<!--search content-->
+<div class="col-lg-11 col-md-13 mx-auto">
+<div class="bg-faded p-4 my-4">
+<form>
+        <div class="form-group">
+           <table align="center">
+
+            <tr>
+                <td ><a class="btn btn-sm btn-warning point" ng-click="mytoggle1=!mytoggle1">   Sort - Reverse or Forword</a> </td>
+                <td>&nbsp; &nbsp; &nbsp;</td>
+                <td>House Name</td><td>:</td>
+                <td><input type="text" class="form-control" ng-model="findName.name" size="20" placeholder="Enter Name" /></td>
+                <td>&nbsp; &nbsp; &nbsp;</td>
+                <td>Region</td><td>:</td>
+                <td><input type="text" class="form-control" ng-model="findRegion.region" size="20" placeholder="Enter Region" /></td>
+            </tr>
+
+         </table>
+      </div>
+
+</form>
+</div>
+
+<!-- //main content---->
+
+    <div class="bg-fad p-4 my-4 text-center" ng-repeat="house in mystuffs.houses | orderBy: !mytoggle1? 'name':'-name' | filter:findName |filter:findRegion"  data-toggle="tooltip">
+      <a ng-href="#/view-house/{{ house.url.substr(house.url.lastIndexOf('/') + 1) }}">
+        <hr class="divider">
+
+          <h3 class="text-center tagline-upper text-lg text-uppercase my-0">"{{house.name}}" <span ng-show = "{{house.name.length < 1 }}" >"No Name Available"</span><br></h3>
+
+        <hr class="divider">
+      </a>
+            <h3>Region:  {{house.region}}  <span ng-show = "{{house.region.length < 1 }}" >"No Region Available"</span></h3>
+        <p> Coat Of Arms: {{house.coatOfArms | limitTo: 200 }} <span ng-show !="{{house.coatOfArms}}">No Coat Of Arms Available</span></p>
+
+        <p>Words: {{house.words}}<span ng-show="{{house.words.length < 1}}">"No House Words Available"</span></p>
+    </div>
+</div>

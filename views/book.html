@@ -1,0 +1,44 @@
+
+<!--search content-->
+<div class="col-lg-11 col-md-13 mx-auto">
+<div class="bg-faded p-4 my-4">
+<form>
+        <div class="form-group">
+           <table align="center">
+
+            <tr>
+                <td ><a class="btn btn-sm btn-warning point" ng-click="mytoggle1=!mytoggle1"> Sort - Reverse or Forword</a> </td>
+                <td>&nbsp; &nbsp; &nbsp;</td>
+                <td>Author Name</td><td>:</td>
+                <td><input type="text" class="form-control" ng-model="findAuthor.authors" size="20" placeholder="Enter Author Name" /></td>
+                <td>&nbsp; &nbsp; &nbsp;</td>
+                <td> Book Name</td><td>:</td>
+                <td><input type="text" class="form-control" ng-model="findBook.name" size="20" placeholder="Enter Book Name" /></td>
+            </tr>
+         </table>
+
+      </div>
+
+</form>
+</div>
+
+<!-- //main content---->
+
+
+<div class="bg-fad p-4 my-4" ng-repeat="book in mystuffs.books | orderBy: !mytoggle1? 'name':'-name' | filter:findAuthor |filter:findBook"  data-toggle="tooltip">
+
+
+  <a ng-href="#/view-book/{{ book.url.substr(book.url.lastIndexOf('/') + 1) }}">
+    <hr class="divider">
+
+    <h2 class="text-center tagline-upper  text-lg text-uppercase my-0">{{book.name}}
+      <strong></strong>
+    </h2>
+
+    <hr class="divider">
+    </a>
+
+    <p class="text-center">by</p>
+    <p class="text-center"><span  ng-repeat= 'author in book.authors'>   "{{author}}"   </span></p>
+  </div>
+</div>

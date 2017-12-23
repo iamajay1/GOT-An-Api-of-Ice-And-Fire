@@ -1,0 +1,131 @@
+<div class="col-lg-11 col-md-13 mx-auto">
+  <div class="bg-faded p-4 my-4">
+    <a href="#/"><label for="tab4">Back</label></a>
+    <hr class="divider">
+
+    <h2 class="text-center text-lg text-uppercase my-0">Character Details
+      <strong></strong>
+    </h2>
+
+    <hr class="divider">
+
+  <table align="center" class="table table-bordered  table-hover">
+  <tr>
+    <th colspan="3" class="text-center">
+       <span ng-show="onecharacter.character.name.length > 0">[Character Name: {{onecharacter.character.name}}] </span>
+       <span ng-show="onecharacter.character.name.length < 1 ">"Not Known"</span>
+   </th>
+
+  </tr>
+  <tr><td> Gender </td><td>:</td>
+      <td>
+        <span ng-show="onecharacter.character.gender.length > 0">{{onecharacter.character.gender}}</span>
+        <span ng-show="onecharacter.character.gender.length < 1 ">Not Known</span>
+      </td>
+  </tr>
+  <tr><td> Culture </td><td>:</td>
+    <td>
+        <span ng-show="onecharacter.character.culture.length > 0">{{onecharacter.charater.culture}}</span>
+      <span ng-show="onecharacter.character.culture.length < 1">Not Known</span>
+
+    </td>
+</tr>
+<tr><td> Born</td><td>:</td>
+  <td>
+      <span ng-show="onecharacter.character.born.length > 0">{{onecharacter.charater.born}}</span>
+    <span ng-show="onecharacter.character.born.length < 1">Not known</span>
+
+  </td>
+</tr>
+<tr><td> Died </td><td>:</td>
+  <td>
+      <span ng-show="onecharacter.character.died.length > 0">{{onecharacter.charater.died}}</span>
+    <span ng-show="onecharacter.character.died.length < 1">Not known</span>
+
+  </td>
+</tr>
+<tr><td> Titles </td><td>:</td>
+    <td>
+      <span ng-repeat="title in onecharacter.character.titles">{{title}} </span>
+      <span ng-show="onecharacter.character.titles.length < 1 ">Not Known</span>
+    </td>
+</tr>
+<tr><td> Aliases </td><td>:</td>
+  <td>
+    <span ng-repeat="aliases in onecharacter.character.aliases">{{aliases}}</span>
+    <span ng-show="onecharacter.character.aliases.length < 1 ">Not Known</span>
+
+
+  </td>
+</tr>
+<tr><td> Father </td><td>:</td>
+  <td>
+    <span ng-show="onecharacter.character.father.length > 0 "><a ng-href="{{onecharacter.character.father.replace('https://anapioficeandfire.com/api/characters','#/view-character')}}" title="View Details">
+{{onecharacter.character.father.replace('https://anapioficeandfire.com/api/characters','api/view-father')}}</a></span>
+    <span ng-show="onecharacter.character.father.length < 1 ">"Not known"</span>
+
+  </td>
+</tr>
+<tr><td> Mother </td><td>:</td>
+  <td>
+    <span ng-show="onecharacter.character.mother.length > 0 ">  <a ng-href="{{onecharacter.character.mother.replace('https://anapioficeandfire.com/api/characters','#/view-character')}}" title="View Details">
+{{onecharacter.character.mother.replace('https://anapioficeandfire.com/api/characters','api/view-mother')}}</a></span>
+    <span ng-show="onecharacter.character.mother.length < 1 ">"Not known"</span>
+
+  </td>
+</tr>
+<tr><td> Spouse </td><td>:</td>
+  <td>
+    <span ng-show="onecharacter.character.spouse.length > 0 "> <a ng-href="{{onecharacter.character.spouse.replace('https://anapioficeandfire.com/api/characters','#/view-character')}}" title="View Details">
+{{onecharacter.character.spouse.replace('https://anapioficeandfire.com/api/characters','api/view-spouse')}}</a></span>
+    <span ng-show="onecharacter.character.spouse.length < 1 ">"Not known"</span>
+
+  </td>
+</tr>
+<tr><td> Allegiances </td><td>:</td>
+  <td>
+    <span ng-repeat="allegiance in onecharacter.character.allegiances"><a ng-href="{{allegiance.replace('https://anapioficeandfire.com/api/houses','#/view-house')}}" title="View Details">
+{{allegiance.replace('https://anapioficeandfire.com/api/houses','api/view-house')}}</a><br> <br> </span>
+    <span ng-show="onecharacter.character.allegiances.length < 1 ">"Not Known"</span>
+
+  </td>
+</tr>
+<tr>
+  <td>  Books </td><td>:</td>
+
+  <td>
+    <span ng-repeat="book in onecharacter.character.books"><a ng-href="{{book.replace('https://anapioficeandfire.com/api/books','#/view-book')}}" title="View Details">
+{{book.replace('https://anapioficeandfire.com/api/books','api/view-book')}} </a><br><br> </span>
+    <span ng-show="onecharacter.character.books.length < 1 ">"Not Known"</span>
+
+  </td>
+</tr>
+<tr>
+  <td>Pov Books</td><td>:</td>
+  <td>
+    <span ng-repeat="povbook in onecharacter.character.povBooks"><a ng-href="{{povbook.replace('https://anapioficeandfire.com/api/houses','#/view-book')}}" title="View Details">
+{{povbook.replace('https://anapioficeandfire.com/api/houses','api/view-book')}}</a> <br><br> </span>
+    <span ng-show="onecharacter.character.povBooks.length < 1 ">"Not Known"</span>
+  </td>
+</tr>
+<tr>
+  <td>Tv Series</td><td>:</td>
+  <td>
+    <span ng-repeat="tvSer in onecharacter.character.tvSeries">{{tvSer}} <br><br> </span>
+    <span ng-show="onecharacter.character.tvSeries.length < 1 ">"Not Known"</span>
+
+  </td>
+</tr>
+<tr>
+  <td>Played By</td><td>:</td>
+  <td>
+    <span ng-repeat="by in onecharacter.character.playedBy">{{by}} <br/> <br/><span><a ng-href="https://www.google.com/search?q={{by}}" target="_blank"><i class="fa fa-search" aria-hidden="true"></i>
+Search {{by}} on Google For More Info.</a><br/><br/></span></span>
+    <span ng-show="onecharacter.character.playedBy.length < 1 ">"Not Known"</span>
+
+  </td>
+</tr>
+</table>
+
+</div>
+</div>
